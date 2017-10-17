@@ -25,7 +25,14 @@ export default {
     },
     authenticate: LocalAuth.authenticate,
     blurAppScreen: BlurAppScreen.enabled,
-    getConfig: MattermostManaged.getConfig,
+    getConfig: () => {
+        return Promise.resolve({
+            vendor: 'Mattermost',
+            inAppPinCode: 'true',
+            blurApplicationScreen: 'true',
+            serverUrl: 'https://pre-release.mattermost.com'
+        });
+    },
     isDeviceSecure: async () => {
         try {
             return await LocalAuth.isDeviceSecure();
