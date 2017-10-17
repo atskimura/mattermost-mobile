@@ -7,6 +7,7 @@ import {
     BackHandler,
     InteractionManager,
     Keyboard,
+    Platform,
     StyleSheet,
     View
 } from 'react-native';
@@ -390,6 +391,8 @@ export default class ChannelDrawer extends PureComponent {
                 tweenDuration={100}
                 tweenHandler={this.handleDrawerTween}
                 elevation={-5}
+                bottomPanOffset={Platform.OS === 'ios' ? 46 : 64}
+                topPanOffset={Platform.OS === 'ios' ? 64 : 46}
                 styles={{
                     main: {
                         shadowColor: '#000000',
